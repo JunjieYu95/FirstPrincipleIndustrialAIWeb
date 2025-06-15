@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell Energy - Dynamic Pricing Algorithm in Energy Trading</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .price-flash {
+            animation: flash 0.5s ease-in-out;
+        }
+        @keyframes flash {
+            0%, 100% { background-color: transparent; }
+            50% { background-color: rgba(34, 197, 94, 0.2); }
+        }
+        .market-ticker {
+            animation: slide 20s linear infinite;
+        }
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="/" class="text-xl font-bold text-gray-800">← Back to Case Studies</a>
+                <div class="text-sm text-gray-600">Case Study #004</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="inline-flex items-center bg-white/20 px-4 py-2 rounded-full text-sm mb-6">
+                    ⚡ Energy
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Dynamic Pricing Algorithm in Energy Trading</h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    How Shell Energy used Reinforcement Learning agents to make split-second energy trading decisions, 
+                    adapting pricing strategies based on market conditions, weather forecasts, and grid demand.
+                </p>
+                <div class="flex justify-center space-x-4 text-sm">
+                    <span class="bg-white/20 px-3 py-1 rounded-full">Transformational Impact</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">9 min read</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">Published Dec 28, 2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Key Metrics -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Trading Performance</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <span class="text-gray-700">Trading Profits</span>
+                            <span class="text-3xl font-bold text-green-600">+32%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <span class="text-gray-700">Human Intervention</span>
+                            <span class="text-3xl font-bold text-blue-600">-78%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-purple-50 rounded-lg">
+                            <span class="text-gray-700">Decision Speed</span>
+                            <span class="text-3xl font-bold text-purple-600">μs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Profit Performance Over Time</h3>
+                    <canvas id="profitChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Challenge & Solution -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-red-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-red-800">The Challenge</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Energy markets fluctuate rapidly based on weather, demand, and grid conditions. 
+                        Human traders cannot process information fast enough for optimal decisions.
+                    </p>
+                    <div class="mt-4 p-4 bg-red-100 rounded-lg">
+                        <div class="text-2xl font-bold text-red-600">Milliseconds</div>
+                        <div class="text-sm text-red-700">Market response time</div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">The Solution</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Reinforcement learning agents trained on historical market data and real-time inputs 
+                        make autonomous trading decisions, adjusting strategies every millisecond.
+                    </p>
+                    <div class="mt-4 p-4 bg-blue-100 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">Autonomous</div>
+                        <div class="text-sm text-blue-700">Decision making</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Impact -->
+            <div class="bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl p-8 text-white hover-scale">
+                <h3 class="text-3xl font-bold mb-6">Decision Impact</h3>
+                <p class="text-xl leading-relaxed mb-6">
+                    Trading decisions are now made by AI agents that consider hundreds of variables simultaneously. 
+                    Pricing strategies adapt in real-time based on market feedback and learning.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">🤖</div>
+                        <div class="text-sm">AI Agents</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">⚡</div>
+                        <div class="text-sm">Real-time Adaptation</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">📊</div>
+                        <div class="text-sm">Multi-variable Analysis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-time Market Ticker -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Real-time Market Data</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="overflow-hidden">
+                    <div class="market-ticker whitespace-nowrap text-lg">
+                        <span class="inline-block px-4">⚡ Natural Gas: $3.42 ↑2.1%</span>
+                        <span class="inline-block px-4">🌡️ Weather: 72°F Sunny</span>
+                        <span class="inline-block px-4">🏭 Demand: 45.2 GW</span>
+                        <span class="inline-block px-4">⚡ Solar: 12.8 GW</span>
+                        <span class="inline-block px-4">💨 Wind: 8.9 GW</span>
+                        <span class="inline-block px-4">🔥 Coal: 15.3 GW</span>
+                        <span class="inline-block px-4">⚡ Nuclear: 8.2 GW</span>
+                        <span class="inline-block px-4">💰 Price: $45.20/MWh</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Trading Simulation -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI Trading Simulation</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Market Conditions</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Current Price</span>
+                                    <span class="text-2xl font-bold text-blue-600" id="currentPrice">$45.20</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Weather Impact</span>
+                                    <span class="text-2xl font-bold text-green-600">+12%</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-yellow-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Demand Forecast</span>
+                                    <span class="text-2xl font-bold text-yellow-600">48.5 GW</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Grid Stability</span>
+                                    <span class="text-2xl font-bold text-purple-600">95%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">AI Trading Decisions</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <div class="font-semibold mb-2">Buy Signal</div>
+                                <div class="text-sm text-gray-600">Price below predicted range</div>
+                                <div class="text-lg font-bold text-green-600 mt-2">BUY 100 MWh @ $44.80</div>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <div class="font-semibold mb-2">Hold Position</div>
+                                <div class="text-sm text-gray-600">Market within normal range</div>
+                                <div class="text-lg font-bold text-blue-600 mt-2">HOLD 250 MWh</div>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-lg">
+                                <div class="font-semibold mb-2">Sell Signal</div>
+                                <div class="text-sm text-gray-600">Price above predicted range</div>
+                                <div class="text-lg font-bold text-red-600 mt-2">SELL 50 MWh @ $45.60</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Trading Simulator -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Trading Scenario Simulator</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Weather Event</h3>
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🌪️</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Hurricane approaching Gulf Coast</p>
+                        <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors" onclick="simulateScenario('weather')">
+                            Simulate Impact
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Demand Surge</h3>
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">📈</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Unexpected peak demand</p>
+                        <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition-colors" onclick="simulateScenario('demand')">
+                            Simulate Impact
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Supply Disruption</h3>
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🚫</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Pipeline maintenance shutdown</p>
+                        <button class="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 transition-colors" onclick="simulateScenario('supply')">
+                            Simulate Impact
+                        </button>
+                    </div>
+                </div>
+                <div id="scenarioResult" class="mt-8 p-6 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hidden">
+                    <h3 class="text-xl font-bold mb-4">AI Trading Response</h3>
+                    <div id="scenarioResultText"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Interactive Chart
+        const ctx = document.getElementById('profitChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Traditional Trading',
+                    data: [100, 98, 102, 99, 101, 100],
+                    borderColor: 'rgb(239, 68, 68)',
+                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'AI-Powered Trading',
+                    data: [100, 105, 112, 118, 125, 132],
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Performance Index'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Real-time price updates
+        function updatePrice() {
+            const priceElement = document.getElementById('currentPrice');
+            const currentPrice = parseFloat(priceElement.textContent.replace('$', ''));
+            const change = (Math.random() - 0.5) * 2;
+            const newPrice = (currentPrice + change).toFixed(2);
+            priceElement.textContent = `$${newPrice}`;
+            priceElement.parentElement.classList.add('price-flash');
+            setTimeout(() => {
+                priceElement.parentElement.classList.remove('price-flash');
+            }, 500);
+        }
+
+        // Update price every 3 seconds
+        setInterval(updatePrice, 3000);
+
+        // Trading Scenario Simulator
+        function simulateScenario(type) {
+            const responses = {
+                weather: "AI predicts 15% price increase due to supply disruption. Executes buy orders at $44.20, positions for $48.50 sell targets. Estimated profit: $430,000.",
+                demand: "AI detects demand surge pattern. Increases position size by 40%, executes buy orders at $45.80. Targets $47.20 sell price. Estimated profit: $280,000.",
+                supply: "AI anticipates supply shortage. Sells existing positions at $46.40, buys back at $43.20 after resolution. Estimated profit: $320,000."
+            };
+
+            document.getElementById('scenarioResultText').textContent = responses[type];
+            document.getElementById('scenarioResult').classList.remove('hidden');
+        }
+
+        // Interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.hover-scale');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

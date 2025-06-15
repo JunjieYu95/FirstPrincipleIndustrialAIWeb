@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novartis - Computer Vision for Quality Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .quality-indicator {
+            animation: pulse 2s infinite;
+        }
+        .defect-highlight {
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #ff4444; }
+            to { box-shadow: 0 0 20px #ff4444, 0 0 30px #ff4444; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="/" class="text-xl font-bold text-gray-800">← Back to Case Studies</a>
+                <div class="text-sm text-gray-600">Case Study #003</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="inline-flex items-center bg-white/20 px-4 py-2 rounded-full text-sm mb-6">
+                    💊 Pharmaceuticals
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Computer Vision for Quality Control</h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    How Novartis used Convolutional Neural Networks to inspect tablet quality at microscopic level, 
+                    making instant pass/fail decisions that human inspectors cannot match.
+                </p>
+                <div class="flex justify-center space-x-4 text-sm">
+                    <span class="bg-white/20 px-3 py-1 rounded-full">High Impact</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">7 min read</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">Published Jan 5, 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Key Metrics -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Quality Control Results</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <span class="text-gray-700">Defect Detection Accuracy</span>
+                            <span class="text-3xl font-bold text-green-600">99.7%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <span class="text-gray-700">Inspection Speed</span>
+                            <span class="text-3xl font-bold text-blue-600">85%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-purple-50 rounded-lg">
+                            <span class="text-gray-700">Safety Incidents</span>
+                            <span class="text-3xl font-bold text-purple-600">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Detection Accuracy Comparison</h3>
+                    <canvas id="accuracyChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Challenge & Solution -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-red-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-red-800">The Challenge</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Manual quality inspection was slow, subjective, and missed subtle defects that could 
+                        compromise patient safety. Human inspectors could only achieve 94% accuracy.
+                    </p>
+                    <div class="mt-4 p-4 bg-red-100 rounded-lg">
+                        <div class="text-2xl font-bold text-red-600">94%</div>
+                        <div class="text-sm text-red-700">Human inspection accuracy</div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">The Solution</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        High-resolution cameras combined with deep CNN models trained on millions of tablet images 
+                        to detect defects invisible to human inspectors.
+                    </p>
+                    <div class="mt-4 p-4 bg-blue-100 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">Millions</div>
+                        <div class="text-sm text-blue-700">Training images</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Impact -->
+            <div class="bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl p-8 text-white hover-scale">
+                <h3 class="text-3xl font-bold mb-6">Decision Impact</h3>
+                <p class="text-xl leading-relaxed mb-6">
+                    Quality control decisions are now made by AI systems that can detect microscopic cracks, 
+                    color variations, and dimensional inconsistencies. Batch release decisions are based on AI quality assessments.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">🔍</div>
+                        <div class="text-sm">Microscopic Detection</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">⚡</div>
+                        <div class="text-sm">Instant Decisions</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">🛡️</div>
+                        <div class="text-sm">Patient Safety</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quality Control Simulation -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI Quality Control Simulation</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Tablet Inspection</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-green-50 rounded-lg border-2 border-green-200">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Tablet #001</span>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2 quality-indicator"></div>
+                                        <span class="text-green-600">PASS</span>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-600 mt-2">No defects detected</div>
+                            </div>
+                            <div class="p-4 bg-red-50 rounded-lg border-2 border-red-200 defect-highlight">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Tablet #002</span>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2 quality-indicator"></div>
+                                        <span class="text-red-600">FAIL</span>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-600 mt-2">Microscopic crack detected</div>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg border-2 border-green-200">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Tablet #003</span>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2 quality-indicator"></div>
+                                        <span class="text-green-600">PASS</span>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-600 mt-2">No defects detected</div>
+                            </div>
+                            <div class="p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Tablet #004</span>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2 quality-indicator"></div>
+                                        <span class="text-yellow-600">REVIEW</span>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-600 mt-2">Color variation detected</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Real-time Analytics</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Inspection Rate</span>
+                                    <span class="text-2xl font-bold text-blue-600">1,200/min</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Pass Rate</span>
+                                    <span class="text-2xl font-bold text-green-600">98.3%</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-red-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Defect Rate</span>
+                                    <span class="text-2xl font-bold text-red-600">1.7%</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">AI Confidence</span>
+                                    <span class="text-2xl font-bold text-purple-600">99.7%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Defect Detection Simulator -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Defect Detection Simulator</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Microscopic Cracks</h3>
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🔍</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Detect hairline fractures invisible to human eye</p>
+                        <button class="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600 transition-colors" onclick="simulateDefect('crack')">
+                            Test Detection
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Color Variations</h3>
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🎨</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Identify subtle color inconsistencies</p>
+                        <button class="w-full bg-yellow-500 text-white py-2 rounded hover:bg-yellow-600 transition-colors" onclick="simulateDefect('color')">
+                            Test Detection
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Dimensional Issues</h3>
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">📏</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Measure precise dimensions and shapes</p>
+                        <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors" onclick="simulateDefect('dimension')">
+                            Test Detection
+                        </button>
+                    </div>
+                </div>
+                <div id="defectResult" class="mt-8 p-6 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hidden">
+                    <h3 class="text-xl font-bold mb-4">AI Detection Result</h3>
+                    <div id="defectResultText"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Interactive Chart
+        const ctx = document.getElementById('accuracyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['AI Detection (99.7%)', 'Human Inspection (94%)'],
+                datasets: [{
+                    data: [99.7, 94],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(239, 68, 68, 0.8)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+
+        // Defect Detection Simulator
+        function simulateDefect(type) {
+            const results = {
+                crack: "AI detected microscopic crack (0.02mm) in tablet surface. Confidence: 99.8%. Batch flagged for rejection.",
+                color: "AI identified color variation (ΔE = 2.3) exceeding tolerance. Confidence: 97.2%. Batch sent for review.",
+                dimension: "AI measured dimensional deviation (0.15mm) from specification. Confidence: 99.1%. Batch rejected."
+            };
+
+            document.getElementById('defectResultText').textContent = results[type];
+            document.getElementById('defectResult').classList.remove('hidden');
+        }
+
+        // Interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.hover-scale');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

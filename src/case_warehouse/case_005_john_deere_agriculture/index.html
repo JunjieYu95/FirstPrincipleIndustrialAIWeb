@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Deere - AI-Powered Crop Yield Optimization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 2px;
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .field-cell {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .field-cell:hover {
+            transform: scale(1.2);
+        }
+        .soil-health {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="/" class="text-xl font-bold text-gray-800">← Back to Case Studies</a>
+                <div class="text-sm text-gray-600">Case Study #005</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="inline-flex items-center bg-white/20 px-4 py-2 rounded-full text-sm mb-6">
+                    🌾 Agriculture
+                </div>
+                <h1 class="text-5xl font-bold mb-6">AI-Powered Crop Yield Optimization</h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    How John Deere used Multi-modal AI and satellite imagery to analyze field conditions and 
+                    make field-by-field planting and harvesting decisions.
+                </p>
+                <div class="flex justify-center space-x-4 text-sm">
+                    <span class="bg-white/20 px-3 py-1 rounded-full">High Impact</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">6 min read</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">Published Dec 20, 2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Key Metrics -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Agricultural Results</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <span class="text-gray-700">Yield Increase</span>
+                            <span class="text-3xl font-bold text-green-600">15%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <span class="text-gray-700">Seed Waste Reduction</span>
+                            <span class="text-3xl font-bold text-blue-600">20%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-purple-50 rounded-lg">
+                            <span class="text-gray-700">Additional Profit</span>
+                            <span class="text-3xl font-bold text-purple-600">$2,400</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Yield Comparison</h3>
+                    <canvas id="yieldChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Challenge & Solution -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-red-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-red-800">The Challenge</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Farmers needed to optimize crop yields across thousands of acres with varying soil conditions, 
+                        weather patterns, and market demands.
+                    </p>
+                    <div class="mt-4 p-4 bg-red-100 rounded-lg">
+                        <div class="text-2xl font-bold text-red-600">Thousands</div>
+                        <div class="text-sm text-red-700">Of acres to manage</div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">The Solution</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Multi-modal AI system combines satellite imagery, soil sensors, weather forecasts, 
+                        and historical yield data to recommend optimal planting patterns and timing.
+                    </p>
+                    <div class="mt-4 p-4 bg-blue-100 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">Multi-modal</div>
+                        <div class="text-sm text-blue-700">AI system</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Impact -->
+            <div class="bg-gradient-to-r from-green-500 to-blue-500 rounded-xl p-8 text-white hover-scale">
+                <h3 class="text-3xl font-bold mb-6">Decision Impact</h3>
+                <p class="text-xl leading-relaxed mb-6">
+                    Farmers now make planting decisions based on AI analysis of soil composition, weather predictions, 
+                    and market forecasts. Harvesting schedules are optimized using AI-predicted optimal timing.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">🌱</div>
+                        <div class="text-sm">Smart Planting</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">🌤️</div>
+                        <div class="text-sm">Weather Integration</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">📊</div>
+                        <div class="text-sm">Data-Driven Harvest</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Field Simulation -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI Field Analysis Simulation</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Field Health Map</h3>
+                        <div class="field-grid mb-4">
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-yellow-400" data-health="moderate"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-red-400" data-health="poor"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-yellow-300" data-health="moderate"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-yellow-400" data-health="moderate"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-red-300" data-health="poor"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-yellow-300" data-health="moderate"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-yellow-400" data-health="moderate"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-red-400" data-health="poor"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-yellow-300" data-health="moderate"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-yellow-400" data-health="moderate"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-red-300" data-health="poor"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-yellow-300" data-health="moderate"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-yellow-400" data-health="moderate"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-red-400" data-health="poor"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-yellow-300" data-health="moderate"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-yellow-400" data-health="moderate"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                            <div class="field-cell bg-red-300" data-health="poor"></div>
+                            <div class="field-cell bg-green-400" data-health="excellent"></div>
+                            <div class="field-cell bg-yellow-300" data-health="moderate"></div>
+                            <div class="field-cell bg-green-300" data-health="good"></div>
+                        </div>
+                        <div class="flex justify-center space-x-4 text-sm">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-green-400 rounded mr-2"></div>
+                                <span>Excellent</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-green-300 rounded mr-2"></div>
+                                <span>Good</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-yellow-400 rounded mr-2"></div>
+                                <span>Moderate</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-red-400 rounded mr-2"></div>
+                                <span>Poor</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Field Analytics</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Average Soil Health</span>
+                                    <span class="text-2xl font-bold text-green-600">78%</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Moisture Level</span>
+                                    <span class="text-2xl font-bold text-blue-600">65%</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-yellow-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Nitrogen Content</span>
+                                    <span class="text-2xl font-bold text-yellow-600">42 ppm</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Optimal Planting Date</span>
+                                    <span class="text-2xl font-bold text-purple-600">Apr 15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planting Optimization Simulator -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI Planting Optimization</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Soil Analysis</h3>
+                        <div class="w-16 h-16 bg-brown-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🌱</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Analyze soil composition and nutrients</p>
+                        <button class="w-full bg-brown-500 text-white py-2 rounded hover:bg-brown-600 transition-colors" onclick="simulateOptimization('soil')">
+                            Optimize Planting
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Weather Integration</h3>
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🌤️</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Factor in weather forecasts and patterns</p>
+                        <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors" onclick="simulateOptimization('weather')">
+                            Optimize Timing
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg text-center">
+                        <h3 class="text-lg font-bold mb-4">Market Analysis</h3>
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">📈</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">Consider market demand and prices</p>
+                        <button class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition-colors" onclick="simulateOptimization('market')">
+                            Optimize Crops
+                        </button>
+                    </div>
+                </div>
+                <div id="optimizationResult" class="mt-8 p-6 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hidden">
+                    <h3 class="text-xl font-bold mb-4">AI Recommendation</h3>
+                    <div id="optimizationResultText"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Interactive Chart
+        const ctx = document.getElementById('yieldChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Field A', 'Field B', 'Field C', 'Field D', 'Field E'],
+                datasets: [{
+                    label: 'Traditional Yield',
+                    data: [85, 78, 92, 88, 90],
+                    backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                }, {
+                    label: 'AI-Optimized Yield',
+                    data: [98, 89, 105, 101, 103],
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Yield (bushels/acre)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Field cell interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const cells = document.querySelectorAll('.field-cell');
+            cells.forEach(cell => {
+                cell.addEventListener('click', function() {
+                    const health = this.getAttribute('data-health');
+                    const healthText = {
+                        'excellent': 'Excellent soil health - Optimal for planting',
+                        'good': 'Good soil conditions - Standard planting recommended',
+                        'moderate': 'Moderate soil health - Consider soil treatment',
+                        'poor': 'Poor soil conditions - Requires remediation'
+                    };
+                    alert(`Field Health: ${healthText[health]}`);
+                });
+            });
+        });
+
+        // Planting Optimization Simulator
+        function simulateOptimization(type) {
+            const recommendations = {
+                soil: "AI recommends: Increase nitrogen application by 15% in sections B3, C2, D4. Reduce phosphorus in A1, E3. Expected yield improvement: 12%.",
+                weather: "AI recommends: Delay planting by 3 days due to incoming rain. Optimal planting window: April 15-18. Expected yield improvement: 8%.",
+                market: "AI recommends: Increase corn acreage by 20%, reduce soybean by 15% based on market forecasts. Expected profit improvement: $1,800/acre."
+            };
+
+            document.getElementById('optimizationResultText').textContent = recommendations[type];
+            document.getElementById('optimizationResult').classList.remove('hidden');
+        }
+
+        // Interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.hover-scale');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
