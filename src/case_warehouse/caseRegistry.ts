@@ -117,6 +117,50 @@ export const caseStudyRegistry: CaseStudyRegistry[] = [
     },
     htmlPath: '/case_warehouse/case_005_john_deere_agriculture/index.html',
     folderName: 'case_005_john_deere_agriculture'
+  },
+  {
+    id: '6',
+    caseStudy: {
+      id: '6',
+      title: 'Natural Language Processing for Legal Document Analysis',
+      company: 'Baker McKenzie',
+      industry: 'Legal Services',
+      aiTechnique: 'Large Language Models + NLP',
+      impactLevel: 'High',
+      description: 'Custom-trained language models analyze complex legal contracts, identify risks, compliance issues, and negotiation points, informing strategic legal decisions.',
+      challenge: 'Legal teams spent 60% of their time reviewing documents manually, leading to missed risks and inefficient resource allocation.',
+      solution: 'Custom-trained language models analyze contracts, identify key clauses, flag potential risks, and suggest negotiation strategies based on historical case outcomes.',
+      results: '75% faster document review, 40% improvement in risk identification, 55% increase in contract success rate.',
+      decisionImpact: 'Legal strategy decisions are now informed by AI analysis of contract risks and historical outcomes. Lawyers focus on high-value strategic work while AI handles routine document analysis.',
+      image: 'https://images.pexels.com/photos/5668856/pexels-photo-5668856.jpeg',
+      readTime: 7,
+      publishedDate: '2023-12-15',
+      tags: ['NLP', 'Legal Tech', 'Document Analysis', 'Risk Assessment']
+    },
+    htmlPath: '/case_warehouse/case_006_baker_mckenzie_legal/index.html',
+    folderName: 'case_006_baker_mckenzie_legal'
+  },
+  {
+    id: '7',
+    caseStudy: {
+      id: '7',
+      title: 'Reinforcement Learning for Data Center Cooling Optimization',
+      company: 'Google DeepMind',
+      industry: 'Data Center',
+      aiTechnique: 'Reinforcement Learning + IoT Sensors',
+      impactLevel: 'Transformational',
+      description: 'RL agents dynamically adjust cooling system parameters, minimizing energy consumption while maintaining optimal server temperatures.',
+      challenge: 'Data centers are energy-intensive, with cooling accounting for 40% of energy usage. Traditional cooling systems are often inefficient and struggle to adapt to changing workloads.',
+      solution: 'RL agents were trained on historical data from sensors measuring temperature, power consumption, and cooling system settings to optimize energy efficiency in real-time.',
+      results: '40% reduction in cooling energy consumption, $2.5M annual cost savings, 35% reduction in carbon footprint.',
+      decisionImpact: 'Cooling system operations are now autonomously managed by AI, leading to more efficient and adaptive data center environments. This allows for better resource utilization and supports sustainability goals.',
+      image: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg',
+      readTime: 7,
+      publishedDate: '2024-03-10',
+      tags: ['Reinforcement Learning', 'Energy Efficiency', 'Data Center', 'Sustainability']
+    },
+    htmlPath: '/case_warehouse/case_007_google_deepmind_cooling/index.html',
+    folderName: 'case_007_google_deepmind_cooling'
   }
 ];
 
