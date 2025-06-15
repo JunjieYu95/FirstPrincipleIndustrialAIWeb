@@ -102,6 +102,23 @@ export const caseStudies: CaseStudy[] = [
     readTime: 7,
     publishedDate: '2023-12-15',
     tags: ['Legal Tech', 'NLP', 'Document Analysis', 'Risk Assessment']
+  },
+  {
+    id: '7',
+    title: 'Reinforcement Learning for Data Center Cooling Optimization',
+    company: 'Google DeepMind',
+    industry: 'Data Center',
+    aiTechnique: 'Reinforcement Learning',
+    impactLevel: 'Transformational',
+    description: 'RL agents dynamically adjust cooling system parameters to minimize energy consumption while maintaining optimal server temperatures.',
+    challenge: 'Data centers are energy-intensive, with cooling accounting for a significant portion of energy usage. Traditional cooling systems are often inefficient and struggle to adapt to changing workloads and environmental conditions.',
+    solution: 'RL agents were trained on historical data from sensors measuring temperature, power consumption, and cooling system settings. These agents learn to make real-time adjustments to cooling units, fan speeds, and airflow distribution to optimize energy efficiency.',
+    results: 'Up to 40% reduction in energy used for cooling, significant cost savings, and a reduction in carbon footprint.',
+    decisionImpact: 'Cooling system operations are now autonomously managed by AI, leading to more efficient and adaptive data center environments. This allows for better resource utilization and supports sustainability goals.',
+    image: '/images/data_center_cooling.jpg',
+    readTime: 7,
+    publishedDate: '2024-03-10',
+    tags: ['Reinforcement Learning', 'Data Center', 'Energy Efficiency', 'Sustainability']
   }
 ];
 
@@ -112,7 +129,8 @@ export const industries = [
   'Pharmaceuticals',
   'Energy',
   'Agriculture',
-  'Legal Services'
+  'Legal Services',
+  'Data Center'
 ];
 
 export const impactLevels = [
