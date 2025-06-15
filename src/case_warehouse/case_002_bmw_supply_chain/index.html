@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Group - AI-Driven Supply Chain Optimization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .node {
+            cursor: pointer;
+        }
+        .node:hover {
+            stroke: #f093fb;
+            stroke-width: 3px;
+        }
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a href="/" class="text-xl font-bold text-gray-800">← Back to Case Studies</a>
+                <div class="text-sm text-gray-600">Case Study #002</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="inline-flex items-center bg-white/20 px-4 py-2 rounded-full text-sm mb-6">
+                    🚗 Automotive
+                </div>
+                <h1 class="text-5xl font-bold mb-6">AI-Driven Supply Chain Optimization</h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    How BMW Group used Deep Learning and Graph Neural Networks to analyze complex supplier 
+                    relationships and make real-time sourcing decisions across 12,000+ suppliers.
+                </p>
+                <div class="flex justify-center space-x-4 text-sm">
+                    <span class="bg-white/20 px-3 py-1 rounded-full">High Impact</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">6 min read</span>
+                    <span class="bg-white/20 px-3 py-1 rounded-full">Published Jan 10, 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Key Metrics -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Key Results</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                            <span class="text-gray-700">Cost Reduction</span>
+                            <span class="text-3xl font-bold text-blue-600">18%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                            <span class="text-gray-700">Response Time</span>
+                            <span class="text-3xl font-bold text-green-600">60%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-purple-50 rounded-lg">
+                            <span class="text-gray-700">Forecast Accuracy</span>
+                            <span class="text-3xl font-bold text-purple-600">+25%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">Supply Chain Performance</h3>
+                    <canvas id="supplyChainChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+
+            <!-- Challenge & Solution -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-red-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-red-800">The Challenge</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Managing complex global supply chain with volatile demand, supplier risks, 
+                        and price fluctuations affecting production decisions across 12,000+ suppliers.
+                    </p>
+                    <div class="mt-4 p-4 bg-red-100 rounded-lg">
+                        <div class="text-2xl font-bold text-red-600">12,000+</div>
+                        <div class="text-sm text-red-700">Global suppliers</div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6 hover-scale">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-800">The Solution</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Graph neural networks model supplier relationships, while deep learning algorithms 
+                        predict demand patterns and optimize sourcing decisions in real-time.
+                    </p>
+                    <div class="mt-4 p-4 bg-blue-100 rounded-lg">
+                        <div class="text-2xl font-bold text-blue-600">Real-time</div>
+                        <div class="text-sm text-blue-700">Decision making</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decision Impact -->
+            <div class="bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl p-8 text-white hover-scale">
+                <h3 class="text-3xl font-bold mb-6">Decision Impact</h3>
+                <p class="text-xl leading-relaxed mb-6">
+                    Procurement teams now rely on AI recommendations for supplier selection, contract negotiations, 
+                    and risk mitigation strategies. Production planning decisions are made based on AI-predicted supply scenarios.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">🤖</div>
+                        <div class="text-sm">AI Recommendations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">📊</div>
+                        <div class="text-sm">Risk Mitigation</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">⚡</div>
+                        <div class="text-sm">Real-time Planning</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Network Visualization -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Supplier Network Visualization</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Network Overview</h3>
+                        <div id="networkGraph" class="w-full h-96 border rounded-lg"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Supplier Analytics</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-blue-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Active Suppliers</span>
+                                    <span class="text-2xl font-bold text-blue-600">8,450</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-green-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Risk Level</span>
+                                    <span class="text-2xl font-bold text-green-600">Low</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-yellow-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Delivery Performance</span>
+                                    <span class="text-2xl font-bold text-yellow-600">94%</span>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-purple-50 rounded-lg">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold">Cost Efficiency</span>
+                                    <span class="text-2xl font-bold text-purple-600">+18%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Decision Simulator -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI Decision Simulator</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-4">Scenario 1: Supplier Delay</h3>
+                        <p class="text-sm text-gray-600 mb-4">Key supplier reports 2-week delay</p>
+                        <button class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors" onclick="simulateDecision('delay')">
+                            Run AI Analysis
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-4">Scenario 2: Price Increase</h3>
+                        <p class="text-sm text-gray-600 mb-4">Raw material costs spike 15%</p>
+                        <button class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition-colors" onclick="simulateDecision('price')">
+                            Run AI Analysis
+                        </button>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-lg">
+                        <h3 class="text-lg font-bold mb-4">Scenario 3: Demand Surge</h3>
+                        <p class="text-sm text-gray-600 mb-4">Unexpected 30% demand increase</p>
+                        <button class="w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 transition-colors" onclick="simulateDecision('demand')">
+                            Run AI Analysis
+                        </button>
+                    </div>
+                </div>
+                <div id="aiRecommendation" class="mt-8 p-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg hidden">
+                    <h3 class="text-xl font-bold mb-4">AI Recommendation</h3>
+                    <div id="recommendationText"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Interactive Chart
+        const ctx = document.getElementById('supplyChainChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Traditional Cost',
+                    data: [100, 98, 102, 99],
+                    backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                }, {
+                    label: 'AI-Optimized Cost',
+                    data: [100, 95, 88, 82],
+                    backgroundColor: 'rgba(59, 130, 246, 0.8)',
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Cost Index'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Network Visualization
+        const width = 400;
+        const height = 300;
+
+        const svg = d3.select("#networkGraph")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Sample data for network
+        const nodes = [
+            {id: "BMW", group: 1, size: 20},
+            {id: "Supplier A", group: 2, size: 8},
+            {id: "Supplier B", group: 2, size: 6},
+            {id: "Supplier C", group: 2, size: 10},
+            {id: "Supplier D", group: 3, size: 5},
+            {id: "Supplier E", group: 3, size: 7}
+        ];
+
+        const links = [
+            {source: "BMW", target: "Supplier A"},
+            {source: "BMW", target: "Supplier B"},
+            {source: "BMW", target: "Supplier C"},
+            {source: "Supplier A", target: "Supplier D"},
+            {source: "Supplier B", target: "Supplier E"}
+        ];
+
+        const simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(d => d.id).distance(80))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        const link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .enter().append("line")
+            .attr("class", "link")
+            .attr("stroke-width", 2);
+
+        const node = svg.append("g")
+            .selectAll("circle")
+            .data(nodes)
+            .enter().append("circle")
+            .attr("class", "node")
+            .attr("r", d => d.size)
+            .attr("fill", d => d.group === 1 ? "#f093fb" : d.group === 2 ? "#f5576c" : "#667eea");
+
+        simulation.on("tick", () => {
+            link
+                .attr("x1", d => d.source.x)
+                .attr("y1", d => d.source.y)
+                .attr("x2", d => d.target.x)
+                .attr("y2", d => d.target.y);
+
+            node
+                .attr("cx", d => d.x)
+                .attr("cy", d => d.y);
+        });
+
+        // AI Decision Simulator
+        function simulateDecision(scenario) {
+            const recommendations = {
+                delay: "AI recommends: Activate backup suppliers B and C, adjust production schedule by 3 days, maintain 95% delivery performance.",
+                price: "AI recommends: Negotiate with alternative suppliers, implement cost-sharing agreements, optimize inventory levels.",
+                demand: "AI recommends: Scale up production with suppliers A and C, activate emergency supply channels, adjust pricing strategy."
+            };
+
+            document.getElementById('recommendationText').textContent = recommendations[scenario];
+            document.getElementById('aiRecommendation').classList.remove('hidden');
+        }
+
+        // Interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.hover-scale');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

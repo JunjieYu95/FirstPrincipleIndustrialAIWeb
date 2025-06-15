@@ -5,7 +5,7 @@ import { FilterBar } from './components/FilterBar';
 import { CaseStudyCard } from './components/CaseStudyCard';
 import { CaseStudyDetail } from './components/CaseStudyDetail';
 import { About } from './components/About';
-import { caseStudies, industries, impactLevels } from './data/caseStudies';
+import { caseStudies, industries, impactLevels, getCaseStudyHtmlPath } from './case_warehouse/caseRegistry';
 import { CaseStudy, ViewType } from './types';
 
 function App() {

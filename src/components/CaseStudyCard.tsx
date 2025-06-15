@@ -1,6 +1,7 @@
 import React from 'react';
-import { Clock, TrendingUp, ArrowRight, Zap, Activity } from 'lucide-react';
+import { Clock, TrendingUp, ArrowRight, Zap, Activity, ExternalLink } from 'lucide-react';
 import { CaseStudy } from '../types';
+import { getCaseStudyHtmlPath } from '../case_warehouse/caseRegistry';
 
 interface CaseStudyCardProps {
   caseStudy: CaseStudy;
@@ -16,6 +17,14 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, onClick
         return 'bg-gradient-to-r from-electric-500/20 to-secondary-500/20 text-electric-400 border-electric-500/30';
       default:
         return 'bg-gradient-to-r from-tech-500/20 to-tech-600/20 text-tech-400 border-tech-500/30';
+    }
+  };
+
+  const handleInteractiveClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const htmlPath = getCaseStudyHtmlPath(caseStudy.id);
+    if (htmlPath) {
+      window.open(htmlPath, '_blank');
     }
   };
 
@@ -73,9 +82,18 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ caseStudy, onClick
             <br />
             <span className="font-mono text-xs">{caseStudy.aiTechnique}</span>
           </div>
-          <div className="flex items-center space-x-2 text-electric-400 group-hover:text-electric-300 transition-colors">
-            <span className="text-sm font-mono">ANALYZE</span>
-            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={handleInteractiveClick}
+              className="flex items-center space-x-1 text-purple-400 hover:text-purple-300 transition-colors px-2 py-1 rounded text-xs font-mono"
+            >
+              <ExternalLink className="h-3 w-3" />
+              <span>INTERACTIVE</span>
+            </button>
+            <div className="flex items-center space-x-2 text-electric-400 group-hover:text-electric-300 transition-colors">
+              <span className="text-sm font-mono">ANALYZE</span>
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </div>
           </div>
         </div>
       </div>
